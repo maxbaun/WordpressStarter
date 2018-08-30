@@ -1,0 +1,16 @@
+{
+    "name": "maxbaun/wordpress-starter",
+    "authors": [
+        {
+            "name": "Max Baun",
+            "email": "max@d3applications.com"
+        }
+    ],
+    "require": {
+        "timber/timber": "^1.7",
+        "tgmpa/tgm-plugin-activation": "^2.6"
+    },
+    "require-dev": {
+        "hellonico/timber-dump-extension": "^0.1.1"
+    }
+}
