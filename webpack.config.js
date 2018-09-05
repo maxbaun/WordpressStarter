@@ -68,7 +68,7 @@ const config = {
 						}
 					}
 				],
-				include: path.resolve('./src/img')
+				include: path.resolve('./src/app/img')
 			},
 			{
 				test: /\.(ttf|eot|woff|woff2|svg)$/,
@@ -78,8 +78,8 @@ const config = {
 						name: 'fonts/[name].[ext]'
 					}
 				},
-				include: [path.resolve('./src/css'), path.resolve('./src/fonts')],
-				exclude: path.resolve('./src/img')
+				include: [path.resolve('./src/app/css'), path.resolve('./src/app/fonts')],
+				exclude: path.resolve('./src/app/img')
 			}
 		]
 	},
