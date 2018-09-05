@@ -2,7 +2,7 @@
 
 namespace ThemeName;
 
-if (!defined(ABSPATH)) {
+if (!defined('ABSPATH')) {
     die();
 }
 
