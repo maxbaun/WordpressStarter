@@ -9,7 +9,8 @@
 		"docker-dev": "docker-compose up -d",
 		"docker-build": "docker build -t maxbaun/themename .",
 		"docker-push": "docker push maxbaun/themename",
-		"docker-deploy": "npm run docker-build && npm run docker-push"
+		"docker-deploy": "npm run docker-build && npm run docker-push",
+		"restart": "docker-compose stop && docker-compose up -d"
 	},
 	"keywords": [],
 	"author": "",
@@ -35,18 +36,18 @@
 		"@babel/plugin-syntax-dynamic-import": "^7.0.0",
 		"@babel/plugin-syntax-import-meta": "^7.0.0",
 		"@babel/plugin-transform-object-assign": "^7.0.0",
+		"@babel/plugin-transform-runtime": "^7.0.0",
 		"@babel/preset-env": "^7.0.0",
 		"@babel/preset-react": "^7.0.0",
-		"autoprefixer": "^9.1.3",
+		"autoprefixer": "^9.1.5",
 		"babel-eslint": "^9.0.0",
-		"babel-loader": "^8.0.0",
-		"babel-plugin-add-module-exports": "^0.2.1",
+		"babel-loader": "^8.0.2",
 		"browser-sync": "^2.24.7",
 		"browser-sync-webpack-plugin": "^2.2.2",
 		"copy-webpack-plugin": "^4.5.2",
 		"css-loader": "^1.0.0",
-		"eslint": "^5.4.0",
-		"eslint-config-xo": "^0.24.2",
+		"eslint": "^5.5.0",
+		"eslint-config-xo": "^0.25.0",
 		"eslint-config-xo-react": "^0.17.0",
 		"eslint-plugin-babel": "^5.1.0",
 		"eslint-plugin-import": "^2.14.0",
@@ -58,11 +59,15 @@
 		"sass-loader": "^7.1.0",
 		"style-loader": "^0.23.0",
 		"uglifyjs-webpack-plugin": "^1.3.0",
-		"webpack": "^4.17.1",
+		"webpack": "^4.17.2",
 		"webpack-assets-manifest": "^3.0.2",
 		"webpack-cli": "^3.1.0"
 	},
 	"dependencies": {
-		"@babel/polyfill": "^7.0.0"
+		"@babel/polyfill": "^7.0.0",
+		"@babel/runtime": "^7.0.0",
+		"babel-polyfill": "^6.26.0",
+		"react": "^16.4.2",
+		"react-dom": "^16.4.2"
 	}
 }

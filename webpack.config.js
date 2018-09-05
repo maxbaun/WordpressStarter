@@ -16,16 +16,15 @@ const BuildConfig = {
 };
 
 if (isDev) {
-	BuildConfig.publicPath = `http://${BuildConfig.host}:${
-		BuildConfig.port
-	}/wp-content/themes/${BuildConfig.themeName}/`;
+	BuildConfig.publicPath = `http://${BuildConfig.host}:${BuildConfig.port}/wp-content/themes/${BuildConfig.themeName}/`;
 } else {
 	BuildConfig.publicPath = `/wp-content/themes/${BuildConfig.themeName}/`;
 }
 
 const config = {
 	entry: {
-		app: './src/app/index.js'
+		app: './src/app/index.js',
+		vendor: ['babel-polyfill']
 	},
 	output: {
 		filename: isDev ? 'js/[name].js' : 'js/[hash].[name].js',
@@ -85,19 +84,9 @@ const config = {
 		]
 	},
 	plugins: [
-		new CopyWebpackPlugin(
-			[
-				'**/*.php',
-				'./style.css',
-				'**/*.png',
-				'**/*.jpg',
-				'**/*.twig',
-				'plugins/**/*.zip'
-			],
-			{
-				context: './src'
-			}
-		),
+		new CopyWebpackPlugin(['**/*.php', './style.css', '**/*.png', '**/*.jpg', '**/*.twig', 'plugins/**/*.zip'], {
+			context: './src'
+		}),
 		new MiniCssExtractPlugin({
 			filename: isDev ? 'css/[name].css' : 'css/[name].[hash].css',
 			allChunks: true,
@@ -121,7 +110,7 @@ if (isDev) {
 			{
 				host: BuildConfig.host,
 				port: BuildConfig.port,
-				open: true,
+				open: false,
 				proxy: BuildConfig.proxy,
 				watch: ['./src/**/*.php', './src/**/*.twig'],
 				delay: 500

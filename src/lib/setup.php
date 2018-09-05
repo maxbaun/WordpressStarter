@@ -42,8 +42,16 @@ class Setup
 		return $this->manifest['app.js'];
 	}
 
+	private function getVendorScript() {
+		// return get_template_directory_uri() . '/dist/js/app.js';
+
+		// return get_template_directory_uri() . '/dist/' . $this->manifest['app.js'];
+		return $this->manifest['vendor.js'];
+	}
+
 	public function addScripts() {
-		wp_enqueue_script('themeName', $this->getAppScript(), array(), null, true);
+		wp_enqueue_script('vendor', $this->getVendorScript(), array(), null, true);
+		wp_enqueue_script('themeName', $this->getAppScript(), array('vendor'), null, true);
 
 		$constants = array(
 			'options' => $this->getThemeOptions()
